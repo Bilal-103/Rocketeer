@@ -4,11 +4,8 @@ html {
     scroll-behavior: smooth;
 }
 
-.menu li a.active {
-    color: rgb(255, 1, 1);
-    font-weight: bold;
-    border-bottom: 2px solid rgb(224, 0, 0);
-    transition: 0.3s;
+* {
+    box-sizing: border-box;
 }
 
 
@@ -19,7 +16,7 @@ body {
     background-color: #080506;
     overflow-x: hidden;
     overflow-y: scroll;
-    font-family: raleway;
+    font-family: raleway, sans-serif;
 }
 
 body::-webkit-scrollbar {
@@ -105,6 +102,14 @@ nav {
     color: #fff;
     text-decoration: none;
 }
+
+.menu li a.active {
+    color: rgb(255, 1, 1);
+    font-weight: bold;
+    border-bottom: 2px solid rgb(224, 0, 0);
+    transition: 0.3s;
+}
+
 
 /* Main Body */
 .mainbody {
@@ -399,18 +404,321 @@ footer {
     filter: brightness(1.5);
 }
 
-/* @media screen and (max-width:450px){
+
+@media screen and (max-width: 450px) {
+    .navbardiv {
+        flex-direction: column;
+        gap: 10px;
+        padding: 10px;
+    }
+
+    .logo {
+        margin-left: 10%;
+    }
+
+    .menu {
+        flex-direction: column;
+        gap: 15px;
+        font-size: 1em;
+    }
+
+
+    .mainbody {
+        flex-direction: column;
+        text-align: center;
+        height: auto;
+        padding: 20px 10px;
+    }
+
+    .formbody {
+        width: 100%;
+        margin: 0 auto;
+        height: auto;
+    }
+
+    .future {
+        font-size: 3em;
+    }
+
+    .description {
+        font-size: 1em;
+        margin-bottom: 20px;
+    }
+
+    input {
+        width: 60%;
+        height: 35px;
+        font-size: 0.8em;
+    }
+
+    button {
+        width: 30%;
+        height: 35px;
+        font-size: 0.8em;
+        margin: 0;
+    }
+
+    .pic {
+        height: auto;
+        margin-top: 20px;
+    }
+
+    .astronaut {
+        width: 100%;
+        height: auto;
+    }
+
+    .aboutimg {
+        width: 100%;
+    }
+
+    .aboutus {
+        font-size: 1em;
+    }
+
+    .mission {
+        font-size: 0.8em;
+    }
+
+    .abtpara {
+        font-size: 0.6em;
+    }
+
+
+    .about {
+        width: 100%;
+        flex-direction: column;
+        height: auto;
+        margin-top: 10vh;
+        padding: 10px;
+    }
+
+    .aboutbox {
+        position: absolute;
+        top: 42%;
+        left: 0%;
+        transform: translate(-0%, -50%);
+        box-sizing: border-box;
+        padding: 70px;
+        text-align: center;
+        max-width: 100%;
+    }
+
+    .buynow1 {
+        height: auto;
+        margin-top: 10vh;
+    }
+
+    .container {
+        width: 100%;
+        height: auto;
+    }
+
+    .helmetpic {
+        width: 40%;
+        height: auto;
+    }
+
+    .helmet {
+        height: auto;
+    }
+
+    .buydetails {
+        width: 70%;
+        text-align: start;
+        padding: 10px;
+    }
+
+    .ACS {
+        font-size: 0.8em;
+    }
+
+    .buypara {
+        margin-top: 10px;
+        margin-bottom: 20px;
+        font-size: 0.5em;
+    }
+    .buybutton{
+        width: 40%;
+        height: 20px;
+        font-size: 0.6em;
+        margin: 0;
+    }
+
     .subscription {
-    position: relative;
-    margin-top: 20vh;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    height: 100vh;
-    font-family: Vollkorn;
-    color: #fff;
+        flex-direction: column;
+        height: auto;
+        padding: 20px;
+    }
+
+    .subscontainer {
+        flex-direction: column;
+        width: 100%;
+        height: auto;
+        gap: 20px;
+    }
+
+    .box {
+        width: 60%;
+        height: auto;
+        padding: 15px;
+    }
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+    }
+
+    .footlogo {
+        width: 50%;
+    }
+
+    .icons {
+        justify-content: center;
+        gap: 20px;
+    }
 }
-} */
+
+/* @media screen and (max-width: 768px) {
+
+    .navbardiv {
+        gap: 10px;
+        padding: 10px 20px;
+    }
+
+    .menu {
+        gap: 20px;
+        font-size: 1em;
+    }
+
+
+    .mainbody {
+        width: 100%;
+        height: auto;
+        padding: 30px 20px;
+    }
+
+    .formbody {
+        width: 80%;
+        margin: 0 auto;
+    }
+
+    .future {
+        font-size: 3em;
+    }
+
+    .description,
+    .email-prompt {
+        font-size: 0.8em;
+        margin-top: 5%;
+        margin-bottom: 0px;
+    }
+
+    input {
+        display: inline-block;
+        width: 50%;
+        height: 30px;
+        font-size: 0.6em;
+    }
+
+    button {
+        display: inline-block;
+        width: 30%;
+        height: 30px;
+        font-size: 0.6em;
+    }
+
+    .astronaut {
+        width: 90%;
+        height: auto;
+    }
+
+    .aboutimg {
+        width: 100%;
+    }
+
+
+
+    .about {
+        position: relative;
+        height: auto;
+        width: 100%
+    }
+
+    .aboutbox {
+        position: absolute;
+        top: 40%;
+        left: 47%;
+        transform: translate(-50%, -50%);
+        
+        text-align: center;
+        max-width: 100%;
+
+    }
+
+    .aboutus {
+        font-size: 2em;
+    }
+
+    .mission {
+        font-size: 1em;
+    }
+
+    .abtpara {
+        font-size: 0.8em;
+    }
+
+
+    .buynow1 {
+        flex-direction: column;
+        height: auto;
+        padding: 20px;
+    }
+
+    .container {
+        flex-direction: column;
+        width: 100%;
+        gap: 20px;
+    }
+
+    .helmetpic {
+        width: 80%;
+        height: auto;
+    }
+
+    .buydetails {
+        width: 90%;
+        text-align: center;
+    }
+
     
+    .subscription {
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    .subscontainer {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+    }
+
+    .box {
+        width: 45%;
+        min-width: 200px;
+        height: auto;
+        padding: 20px;
+    }
+
+    
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+    }
+
+    .icons {
+        justify-content: center;
+        gap: 25px;
+    }
+} */
