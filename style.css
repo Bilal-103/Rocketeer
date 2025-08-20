@@ -399,7 +399,7 @@ footer {
     filter: brightness(1.5);
 }
 
-@media screen and (max-width:450px){
+/* @media screen and (max-width:450px){
     .subscription {
     position: relative;
     margin-top: 20vh;
@@ -411,6 +411,6 @@ footer {
     height: 100vh;
     font-family: Vollkorn;
     color: #fff;
-}
+} */
     
 }
