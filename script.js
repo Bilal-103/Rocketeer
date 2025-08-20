@@ -14,10 +14,10 @@ form.addEventListener('submit', (e) => {
   const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
   if (regex.test(email)) {
-    alert("✅ Thank you! You'll receive updates soon.");
+    alert("Thank you! You'll receive updates soon.");
     form.reset();
   } else {
-    alert("❌ Please enter a valid email address.");
+    alert("Please enter a valid email address.");
   }
 });
 
@@ -41,11 +41,10 @@ document.querySelectorAll('.box').forEach(box => {
 // Scroll reveal effect
 const reveals = document.querySelectorAll('.mainbody, .about, .buynow1, .subscription');
 
-// Initial hidden state
 reveals.forEach(sec => {
   sec.style.opacity = 0;
   sec.style.transform = "translateY(50px)";
-  sec.style.transition = "all 0.8s ease"; // animation duration
+  sec.style.transition = "all 0.8s ease"; 
 });
 
 function revealOnScroll() {
@@ -54,20 +53,16 @@ function revealOnScroll() {
     const windowHeight = window.innerHeight;
 
     if (rect.top < windowHeight - 100 && rect.bottom > 100) {
-      // Section is visible → animate in
       el.style.opacity = 1;
       el.style.transform = "translateY(0)";
     } else {
-      // Section is out of view → reset it
       el.style.opacity = 0;
       el.style.transform = "translateY(50px)";
     }
   });
 }
 
-// Run on load
 window.addEventListener("DOMContentLoaded", revealOnScroll);
-// Run on scroll
 window.addEventListener("scroll", revealOnScroll);
 
 // Highlight active menu item on scroll
