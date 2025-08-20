@@ -417,20 +417,10 @@ footer {
 
 @media screen and (max-width: 450px) {
     .bottom-right {
-        background: radial-gradient(ellipse, rgba(255, 242, 242, 0.85) 0%, rgb(245, 99, 41) 0%, transparent 120%);
-        position: absolute;
-        width: 40%;
-        height: 40%;
-        bottom: -100px;
         right: 0px;
     }
 
     .top-right {
-        background: radial-gradient(ellipse, rgba(255, 242, 242, 0.85) 0%, rgb(245, 99, 41) 0%, transparent 120%);
-        position: absolute;
-        width: 40%;
-        height: 40%;
-        top: -100px;
         right: 0px;
     }
 
