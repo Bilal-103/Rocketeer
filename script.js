@@ -41,34 +41,34 @@ document.querySelectorAll('.box').forEach(box => {
 // Scroll reveal effect
 const reveals = document.querySelectorAll('.mainbody, .about, .buynow1, .subscription');
 
-window.addEventListener("scroll", () => {
-  reveals.forEach(el => {
-    const elementTop = el.getBoundingClientRect().top;
-    const windowHeight = window.innerHeight;
-    if (elementTop < windowHeight - 100) {
-      el.classList.add("active");
-    }
-  });
-});
-
 // Initial hidden state
 reveals.forEach(sec => {
   sec.style.opacity = 0;
   sec.style.transform = "translateY(50px)";
+  sec.style.transition = "all 0.8s ease"; // animation duration
 });
 
-window.addEventListener('scroll', () => {
-  reveals.forEach(section => {
-    const sectionTop = section.getBoundingClientRect().top;
+function revealOnScroll() {
+  reveals.forEach(el => {
+    const rect = el.getBoundingClientRect();
     const windowHeight = window.innerHeight;
 
-    if (sectionTop < windowHeight - 100) {
-      section.style.opacity = 1;
-      section.style.transform = "translateY(0)";
-      section.style.transition = "all 1s ease";
+    if (rect.top < windowHeight - 100 && rect.bottom > 100) {
+      // Section is visible → animate in
+      el.style.opacity = 1;
+      el.style.transform = "translateY(0)";
+    } else {
+      // Section is out of view → reset it
+      el.style.opacity = 0;
+      el.style.transform = "translateY(50px)";
     }
   });
-});
+}
+
+// Run on load
+window.addEventListener("DOMContentLoaded", revealOnScroll);
+// Run on scroll
+window.addEventListener("scroll", revealOnScroll);
 
 // Highlight active menu item on scroll
 const sections = document.querySelectorAll("section"); 
@@ -90,22 +90,7 @@ window.addEventListener("scroll", () => {
 // Back to Top button
 const backToTop = document.createElement("button");
 backToTop.innerText = "↑";
-Object.assign(backToTop.style, {
-  position: "fixed",
-  bottom: "50px",
-  right: "30px",
-  padding: "10px 15px",
-  borderRadius: "8px",
-  width: "45px",
-  height: "45px",
-  border: "none",
-  background: "#014f5f",
-  color: "#fff",
-  fontSize: "20px",
-  cursor: "pointer",
-  display: "none",
-  zIndex: "1000"
-});
+backToTop.id = "backToTop"; 
 document.body.appendChild(backToTop);
 
 window.addEventListener("scroll", () => {
