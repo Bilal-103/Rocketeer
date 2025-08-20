@@ -10,6 +10,7 @@ html {
 
 
 body {
+    font-weight: 200;
     margin: 0;
     padding: 0;
     height: 100%;
@@ -360,7 +361,7 @@ button {
 }
 
 .features {
-    font-size: 0.7em;
+    font-size: 0.8em;
     font-weight: 100;
     margin-bottom: 20px;
 }
