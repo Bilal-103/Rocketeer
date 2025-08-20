@@ -72,7 +72,7 @@ body::-webkit-scrollbar {
 }
 
 /* navbar */
-nav {
+header {
     position: sticky;
     top: 0;
     z-index: 1000;
@@ -80,6 +80,7 @@ nav {
     background-color: #08050656;
     margin: auto;
 }
+
 
 .navbardiv {
     display: flex;
@@ -99,7 +100,7 @@ nav {
 }
 
 .menu li a {
-    color: #fff;
+    color: rgb(255, 255, 255);
     text-decoration: none;
 }
 
@@ -126,8 +127,8 @@ nav {
     justify-content: flex-start;
     margin-left: 6vw;
     gap: 10px;
-    width: 40vw;
-    height: 70vh;
+    width: 40%;
+    height: 70%;
 }
 
 .future {
@@ -190,7 +191,7 @@ button {
     height: 115%;
     object-fit: contain;
     /* object-position: center; */
-    opacity: 0.7;
+    opacity: 0.6;
 }
 
 /* About Page */
@@ -201,11 +202,11 @@ button {
     justify-content: center;
     align-items: center;
     width: 100%;
-    height: 100vh;
+    height: 100%;
 }
 
 .aboutimg {
-    width: 70vw;
+    width: 70%;
     overflow: hidden;
     border-radius: 30px;
 }
@@ -259,15 +260,15 @@ button {
     justify-content: center;
     align-items: center;
     width: 100%;
-    height: 100vh;
+    height: 100%;
 }
 
 .container {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    width: 80vw;
-    height: 70vh;
+    width: 80%;
+    height: 70%;
 }
 
 .helmetpic {
@@ -407,6 +408,9 @@ footer {
 
 @media screen and (max-width: 450px) {
     .navbardiv {
+        position: sticky;
+        top: 0;
+        z-index: 1000;
         flex-direction: column;
         gap: 10px;
         padding: 10px;
@@ -538,7 +542,8 @@ footer {
         margin-bottom: 20px;
         font-size: 0.5em;
     }
-    .buybutton{
+
+    .buybutton {
         width: 40%;
         height: 20px;
         font-size: 0.6em;
@@ -563,6 +568,7 @@ footer {
         height: auto;
         padding: 15px;
     }
+
     .footer-content {
         flex-direction: column;
         text-align: center;

@@ -1,116 +1,127 @@
-   // Navbar background change on scroll
-    const navbar = document.querySelector('nav');
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 50) {
-        navbar.style.backgroundColor = "#080506ee";
-      } else {
-        navbar.style.backgroundColor = "#08050656";
-      }
-    });
 
-    // Form email validation
-    const form = document.querySelector('form');
-    form.addEventListener('submit', function (e) {
-      e.preventDefault();
-      const email = form.querySelector('input[type="email"]').value;
-      const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      if (regex.test(email)) {
-        alert("✅ Thank you! You'll receive updates soon.");
-        form.reset();
-      } else {
-        alert("❌ Please enter a valid email address.");
-      }
-    });
+// Navbar background change on scroll
+const navbar = document.querySelector('nav');
+window.addEventListener('scroll', () => {
+  navbar.style.backgroundColor =
+    window.scrollY > 50 ? "#080506ee" : "#08050656";
+});
 
-    // Subscription box highlight
-    document.querySelectorAll('.box').forEach(box => {
-      box.addEventListener('mouseenter', () => {
-        box.style.transform = "scale(1.05)";
-        box.style.transition = "0.3s ease";
-        box.style.boxShadow = "0px 0px 25px rgba(255,255,255,0.5)";
-      });
-      box.addEventListener('mouseleave', () => {
-        box.style.transform = "scale(1)";
-        box.style.boxShadow = "-3px 4px 15px rgba(170, 34, 34, 0.5)";
-      });
-    });
+// Form email validation
+const form = document.querySelector('form');
+form.addEventListener('submit', (e) => {
+  e.preventDefault();
+  const email = form.querySelector('input[type="email"]').value.trim();
+  const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-    // Scroll reveal effect
-    const reveals = document.querySelectorAll('.mainbody, .about, .buynow1, .subscription');
-    window.addEventListener('scroll', () => {
-      reveals.forEach(section => {
-        const sectionTop = section.getBoundingClientRect().top;
-        const windowHeight = window.innerHeight;
-        if (sectionTop < windowHeight - 100) {
-          section.style.opacity = 1;
-          section.style.transform = "translateY(0)";
-          section.style.transition = "all 1s ease";
-        }
-      });
-    });
+  if (regex.test(email)) {
+    alert("✅ Thank you! You'll receive updates soon.");
+    form.reset();
+  } else {
+    alert("❌ Please enter a valid email address.");
+  }
+});
 
-    // Initial hidden state for reveal
-    document.querySelectorAll('.mainbody, .about, .buynow1, .subscription').forEach(sec => {
-      sec.style.opacity = 0;
-      sec.style.transform = "translateY(50px)";
-    });
-    // Highlight active menu item while scrolling
-    const sections = document.querySelectorAll("section, .about, .buynow1, .subscription");
-    const navLinks = document.querySelectorAll("nav a");
+// Subscription box hover effect
+document.querySelectorAll('.box').forEach(box => {
+  box.addEventListener('mouseenter', () => {
+    box.style.cssText = `
+      transform: scale(1.05);
+      transition: 0.3s ease;
+      box-shadow: 0px 0px 25px rgba(255,255,255,0.5);
+    `;
+  });
+  box.addEventListener('mouseleave', () => {
+    box.style.cssText = `
+      transform: scale(1);
+      box-shadow: -3px 4px 15px rgba(170, 34, 34, 0.5);
+    `;
+  });
+});
 
-    window.addEventListener("scroll", () => {
-      let current = "";
-      sections.forEach(sec => {
-        const sectionTop = sec.offsetTop - 100;
-        if (pageYOffset >= sectionTop) {
-          current = sec.getAttribute("id");
-        }
-      });
+// Scroll reveal effect
+const reveals = document.querySelectorAll('.mainbody, .about, .buynow1, .subscription');
 
-      navLinks.forEach(link => {
-        link.classList.remove("active");
-        if (link.getAttribute("href") === `#${current}`) {
-          link.classList.add("active");
-        }
-      });
-    });
+window.addEventListener("scroll", () => {
+  reveals.forEach(el => {
+    const elementTop = el.getBoundingClientRect().top;
+    const windowHeight = window.innerHeight;
+    if (elementTop < windowHeight - 100) {
+      el.classList.add("active");
+    }
+  });
+});
 
-    // Add "Back to Top" button
-    const backToTop = document.createElement("button");
-    backToTop.innerText = "↑";
-    backToTop.style.position = "fixed";
-    backToTop.style.bottom = "50px";
-    backToTop.style.right = "30px";
-    backToTop.style.padding = "10px 15px";
-    backToTop.style.borderRadius = "8px";
-    backToTop.style.width = "45px";
-    backToTop.style.height = "45px";
-    backToTop.style.border = "none";
-    backToTop.style.background = "#014f5f";
-    backToTop.style.color = "#fff";
-    backToTop.style.fontSize = "20px";
-    backToTop.style.cursor = "pointer";
-    backToTop.style.display = "none";
-    document.body.appendChild(backToTop);
+// Initial hidden state
+reveals.forEach(sec => {
+  sec.style.opacity = 0;
+  sec.style.transform = "translateY(50px)";
+});
 
-    window.addEventListener("scroll", () => {
-      if (window.scrollY > 200) {
-        backToTop.style.display = "block";
-      } else {
-        backToTop.style.display = "none";
-      }
-    });
+window.addEventListener('scroll', () => {
+  reveals.forEach(section => {
+    const sectionTop = section.getBoundingClientRect().top;
+    const windowHeight = window.innerHeight;
 
-    backToTop.addEventListener("click", () => {
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    });
+    if (sectionTop < windowHeight - 100) {
+      section.style.opacity = 1;
+      section.style.transform = "translateY(0)";
+      section.style.transition = "all 1s ease";
+    }
+  });
+});
 
-    // Animate buttons when clicked
-    document.querySelectorAll("button").forEach(btn => {
-      btn.addEventListener("click", () => {
-        btn.style.transform = "scale(0.9)";
-        setTimeout(() => {
-          btn.style.transform = "scale(1)";
-        }, 150);
-      });
-    });
+// Highlight active menu item on scroll
+const sections = document.querySelectorAll("section"); 
+const navLinks = document.querySelectorAll("nav a");
+
+window.addEventListener("scroll", () => {
+  let current = "";
+  sections.forEach(sec => {
+    if (pageYOffset >= sec.offsetTop - 120) {
+      current = sec.getAttribute("id");
+    }
+  });
+
+  navLinks.forEach(link => {
+    link.classList.toggle("active", link.getAttribute("href") === `#${current}`);
+  });
+});
+
+// Back to Top button
+const backToTop = document.createElement("button");
+backToTop.innerText = "↑";
+Object.assign(backToTop.style, {
+  position: "fixed",
+  bottom: "50px",
+  right: "30px",
+  padding: "10px 15px",
+  borderRadius: "8px",
+  width: "45px",
+  height: "45px",
+  border: "none",
+  background: "#014f5f",
+  color: "#fff",
+  fontSize: "20px",
+  cursor: "pointer",
+  display: "none",
+  zIndex: "1000"
+});
+document.body.appendChild(backToTop);
+
+window.addEventListener("scroll", () => {
+  backToTop.style.display = window.scrollY > 200 ? "block" : "none";
+});
+
+backToTop.addEventListener("click", () => {
+  window.scrollTo({ top: 0, behavior: "smooth" });
+});
+
+// Animate all buttons when clicked
+document.querySelectorAll("button").forEach(btn => {
+  btn.addEventListener("click", () => {
+    btn.style.transform = "scale(0.9)";
+    setTimeout(() => {
+      btn.style.transform = "scale(1)";
+    }, 150);
+  });
+});
