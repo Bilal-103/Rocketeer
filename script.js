@@ -1,11 +1,4 @@
 
-// Navbar background change on scroll
-const navbar = document.querySelector('nav');
-window.addEventListener('scroll', () => {
-  navbar.style.backgroundColor =
-    window.scrollY > 50 ? "#080506ee" : "#08050656";
-});
-
 // Form email validation
 const form = document.querySelector('form');
 form.addEventListener('submit', (e) => {
@@ -104,4 +97,10 @@ document.querySelectorAll("button").forEach(btn => {
       btn.style.transform = "scale(1)";
     }, 150);
   });
+});
+// Navbar background change on scroll
+const navbar = document.querySelector('nav');
+window.addEventListener('scroll', () => {
+  navbar.style.backgroundColor =
+    window.scrollY > 50 ? "#080506ee" : "#08050656";
 });
